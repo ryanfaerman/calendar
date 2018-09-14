@@ -1,4 +1,4 @@
-package gregorian
+package julian
 
 import "testing"
 
@@ -10,7 +10,7 @@ func TestIsLeap(t *testing.T) {
 		2018: false,
 		2017: false,
 		1982: false,
-		1900: false, // Julian leap but not Gregorian
+		1900: true, // Julian leap but not Gregorian
 	}
 
 	for year, expected := range examples {
