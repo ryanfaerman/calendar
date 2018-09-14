@@ -1,10 +1,4 @@
-package main
-
-import (
-	"fmt"
-
-	"github.com/ryanfaerman/calendar/gregorian"
-)
+package calendar
 
 type Calendar interface {
 	IsLeap() bool
@@ -14,15 +8,4 @@ type Calendar interface {
 
 func Convert(from, to Calendar) Calendar {
 	return to.FromAbsolute(from.ToAbsolute())
-}
-
-func main() {
-
-	g := gregorian.Date{1945, 11, 12}
-	abs := g.ToAbsolute()
-	fmt.Println(abs)
-	fmt.Println(gregorian.NewFromAbsolute(abs))
-
-	fmt.Println(Convert(g, gregorian.Date{}))
-
 }
