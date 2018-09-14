@@ -5,7 +5,3 @@ type Calendar interface {
 	ToAbsolute() int
 	FromAbsolute(int) Calendar
 }
-
-func Convert(from, to Calendar) Calendar {
-	return to.FromAbsolute(from.ToAbsolute())
-}
