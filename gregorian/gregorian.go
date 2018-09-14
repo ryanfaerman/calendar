@@ -1,7 +1,7 @@
 package gregorian
 
 import (
-	"fmt"
+	"github.com/ryanfaerman/calendar"
 )
 
 type Date struct {
@@ -71,7 +71,7 @@ func (d Date) ToAbsolute() int {
 }
 
 // FromAbsolute implements the Calendar interface, wrapping the constructor
-func (d Date) FromAbsolute(days int) Date {
+func (d Date) FromAbsolute(days int) calendar.Calendar {
 	return NewFromAbsolute(days)
 }
 
@@ -97,10 +97,8 @@ func NewFromAbsolute(days int) Date {
 		month := 1
 
 		mlen := daysInMonth(Date{Month: month, Year: year})
-		fmt.Println(mlen, day)
 		for mlen < day {
 			day -= mlen
-			fmt.Println(mlen, day)
 			month++
 			mlen = daysInMonth(Date{Month: month, Year: year})
 		}
